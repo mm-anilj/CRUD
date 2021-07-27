@@ -23,7 +23,7 @@ namespace Project1.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
         {
-            return await _context.Employees.Where(a=>a.IsDelete == false).ToListAsync();
+            return await _context.Employees.Where(a => a.IsDelete == false).ToListAsync();
         }
 
         // GET: api/Employees1/5
@@ -91,7 +91,7 @@ namespace Project1.Controllers
             {
                 return NotFound();
             }
-             employee.IsDelete = true;
+            employee.IsDelete = true;
             _context.Entry(employee).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 

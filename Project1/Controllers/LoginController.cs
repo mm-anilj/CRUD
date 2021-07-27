@@ -1,12 +1,10 @@
-﻿using System;
+﻿using CodeFirstMigration.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Project1.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using CodeFirstMigration.Context;
-using Project1.Models;
 
 namespace Project1.Controllers
 {
@@ -82,7 +80,7 @@ namespace Project1.Controllers
         {
             //_context.LoginDetails.Add(loginDetails);
             //await _context.SaveChangesAsync();
-            var loginDetailsData =  _context.LoginDetails.Where(a=>a.username == loginDetails.username).FirstOrDefault();
+            var loginDetailsData = _context.LoginDetails.Where(a => a.username == loginDetails.username).FirstOrDefault();
 
             return CreatedAtAction("GetLoginDetails", new { id = loginDetails.id }, loginDetailsData);
         }
