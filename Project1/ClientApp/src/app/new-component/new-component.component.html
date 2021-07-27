@@ -1,0 +1,33 @@
+<p *ngIf="!empList"><em>Loading...</em></p>
+
+<button type="button" class="btn btn-success mr-1" [routerLink]="['/edit']">Add Employee</button>
+<br />
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="empList">
+  <thead>
+    <tr>
+      <!--<th>Employee Id</th>-->
+      <th>Name</th>
+      <th>Designation</th>
+      <th>CompanyName</th>
+      <th>Address</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of empList">
+      <!--<td>{{ emp.employeeId }}</td>-->
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.designation }}</td>
+      <td>{{ emp.companyName }}</td>
+      <td>{{ emp.address }}</td>
+      <td>{{ emp.state }}</td>
+      <td>{{ emp.city }}</td>
+      <td>
+        <button type="button" class="btn btn-success mr-1" (click)="ViewEmployee(emp.employeeId)">Edit</button>
+        <button type="button" class="btn btn-danger" (click)="DeleteEmployee(emp.employeeId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
